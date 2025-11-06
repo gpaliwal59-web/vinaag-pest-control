@@ -116,6 +116,9 @@ export default function Booking() {
           <p className="text-sm text-gray-600">
             You will receive a confirmation email at <strong>{formData.email}</strong>
           </p>
+          <p className="text-xs text-gray-400 mt-4">
+            Orders are facilitated by Vinaag; services are fulfilled by Regal Services (Govt. License: LAID10050103).
+          </p>
         </div>
       </div>
     )
@@ -351,6 +354,9 @@ export default function Booking() {
                   <p className="text-sm text-gray-600 mt-4 text-center">
                     By submitting this form, you agree to our terms and conditions. 
                     We'll contact you to confirm your appointment.
+                  </p>
+                  <p className="text-xs text-gray-400 mt-2 text-center">
+                    Orders are facilitated by Vinaag; services are fulfilled by Regal Services (Govt. License: LAID10050103).
                   </p>
                 </div>
               </form>

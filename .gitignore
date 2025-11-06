@@ -36,3 +36,5 @@ next-env.d.ts
 
 # bookings data (private customer information)
 /bookings/
+
+.vercel

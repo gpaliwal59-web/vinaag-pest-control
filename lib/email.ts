@@ -77,6 +77,9 @@ export async function sendBookingEmail(bookingData: BookingData) {
     <div class="footer">
       <p>Vinaag Pest Control - Professional Pest Management</p>
       <p>📞 7498571873 | 📧 support@vinaag.com</p>
+      <p style="color:#999; font-size:11px; margin-top:8px;">
+        Orders are facilitated by Vinaag; services are fulfilled by Regal Services (Govt. License: LAID10050103).
+      </p>
     </div>
   </div>
 </body>

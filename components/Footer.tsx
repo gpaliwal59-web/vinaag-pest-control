@@ -104,6 +104,13 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Subtle Disclaimer */}
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-400">
+            Services are fulfilled by Regal Services (Govt. License: LAID10050103). We only facilitate order bookings.
+          </p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Vinaag Pest Control. All rights reserved.</p>
