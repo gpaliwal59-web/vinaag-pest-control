@@ -1,0 +1,130 @@
+================================================================================
+                    HOSTINGER PE UPLOAD KARNE KI FILES
+================================================================================
+
+📁 FOLDER STRUCTURE (Upload karna hai):
+----------------------------------------
+
+vinaag/
+├── .next/                          ✅ MUST UPLOAD (Build files)
+│   ├── static/
+│   ├── server/
+│   └── ... (sab files)
+│
+├── public/                         ✅ MUST UPLOAD
+│   ├── logo.png                    ✅ (Aapka logo)
+│   └── images/                     ✅ (Agar photos hain)
+│
+├── app/                            ✅ MUST UPLOAD (All pages)
+│   ├── page.tsx
+│   ├── layout.tsx
+│   ├── globals.css
+│   ├── services/
+│   ├── about/
+│   ├── contact/
+│   ├── booking/
+│   └── api/
+│
+├── components/                     ✅ MUST UPLOAD
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   └── WhatsAppButton.tsx
+│
+├── lib/                            ✅ MUST UPLOAD
+│   └── email.ts
+│
+├── node_modules/                   ⚠️ OPTIONAL (Server pe install kar sakte hain)
+│
+├── .env.local                      ✅ MUST UPLOAD (Email settings)
+├── package.json                    ✅ MUST UPLOAD
+├── package-lock.json               ✅ MUST UPLOAD
+├── next.config.js                  ✅ MUST UPLOAD
+├── tsconfig.json                   ✅ MUST UPLOAD
+├── tailwind.config.js              ✅ MUST UPLOAD
+├── postcss.config.js               ✅ MUST UPLOAD
+│
+├── .git/                           ❌ MAT UPLOAD KAREIN
+├── .gitignore                      ❌ MAT UPLOAD KAREIN
+├── README.md                       ❌ MAT UPLOAD KAREIN
+├── *.md files                      ❌ MAT UPLOAD KAREIN
+└── .env.example                    ❌ MAT UPLOAD KAREIN
+
+================================================================================
+
+📦 UPLOAD SIZE (Approximate):
+------------------------------
+- .next/ folder:        ~50-100 MB
+- node_modules/:        ~200-300 MB (optional)
+- Other files:          ~5-10 MB
+- Total (with node_modules): ~300-400 MB
+- Total (without node_modules): ~60-110 MB
+
+⏱️ Upload Time (depends on internet speed):
+- With node_modules:    20-40 minutes
+- Without node_modules: 10-15 minutes
+
+================================================================================
+
+🎯 HOSTINGER UPLOAD LOCATION:
+------------------------------
+Upload all files to:
+→ /public_html/
+   OR
+→ /domains/yourdomain.com/public_html/
+
+================================================================================
+
+✅ PRIORITY ORDER (Upload in this sequence):
+---------------------------------------------
+1. package.json, package-lock.json
+2. .env.local
+3. next.config.js, tsconfig.json, tailwind.config.js, postcss.config.js
+4. app/ folder (all pages)
+5. components/ folder
+6. lib/ folder
+7. public/ folder (logo, images)
+8. .next/ folder (build files)
+9. node_modules/ (optional - ya server pe npm install)
+
+================================================================================
+
+📝 IMPORTANT NOTES:
+-------------------
+1. .next/ folder MUST upload karein - ye build files hain
+2. .env.local mein email password sahi hona chahiye
+3. public/logo.png upload karna mat bhoolein
+4. node_modules/ optional hai - server pe npm install kar sakte hain
+5. Upload ke baad server restart karein
+
+================================================================================
+
+🔐 .env.local FILE CONTENT:
+---------------------------
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_USER=support@vinaag.com
+SMTP_PASSWORD=00GD*#paliwal123
+SMTP_FROM=support@vinaag.com
+
+================================================================================
+
+🚀 AFTER UPLOAD:
+----------------
+1. SSH se connect karein
+2. cd public_html
+3. npm install (agar node_modules upload nahi kiye)
+4. pm2 start npm --name "vinaag" -- start
+5. pm2 save
+6. Browser mein domain kholen
+
+================================================================================
+
+📞 HELP:
+--------
+Agar koi file upload nahi ho rahi ya error aa raha hai, check karein:
+- FileZilla properly connected hai
+- Internet stable hai
+- Server pe space available hai
+- File permissions sahi hain
+
+================================================================================

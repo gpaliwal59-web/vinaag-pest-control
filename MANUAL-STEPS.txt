@@ -1,0 +1,31 @@
+===========================================
+IMPORTANT: YE STEPS MANUALLY KAREIN
+===========================================
+
+STEP 1: Logo Image Save Karein
+-------------------------------
+1. Logo image download karein (jo aapne bheja hai)
+2. Isko save karein as: c:\Users\Ghanshyam\Desktop\vinaag\public\logo.png
+3. File name exactly "logo.png" hona chahiye
+
+STEP 2: Email Password Setup
+-----------------------------
+1. File banayein: c:\Users\Ghanshyam\Desktop\vinaag\.env.local
+2. Is content ko copy karein:
+
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_USER=support@vinaag.com
+SMTP_PASSWORD=00GD*#paliwal123
+SMTP_FROM=support@vinaag.com
+
+3. Save karein
+
+STEP 3: Test Karein
+-------------------
+1. Terminal mein: npm run dev
+2. Browser: http://localhost:3000
+3. Logo dikhna chahiye header aur footer mein
+4. Booking test karein - email aana chahiye
+
+===========================================
