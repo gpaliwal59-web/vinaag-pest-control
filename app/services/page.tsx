@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Bug, Home as HomeIcon, Building2, Shield, Zap, Leaf, CheckCircle } from 'lucide-react'
 
 export default function Services() {
@@ -13,6 +14,7 @@ export default function Services() {
         'Advanced baiting systems',
         'Soil treatment and wood treatment',
       ],
+      image: '/images/termite.jpg',
     },
     {
       icon: HomeIcon,
@@ -96,7 +98,20 @@ export default function Services() {
                 key={index}
                 className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary-600"
               >
-                <service.icon className="w-16 h-16 text-primary-600 mb-4" />
+                {service.image ? (
+                  <div className="mb-4 -mt-2">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={800}
+                      height={500}
+                      className="w-full h-48 object-cover rounded-md"
+                      priority
+                    />
+                  </div>
+                ) : (
+                  <service.icon className="w-16 h-16 text-primary-600 mb-4" />
+                )}
                 <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <ul className="space-y-2 mb-6">
