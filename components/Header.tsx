@@ -41,8 +41,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <img 
-              src="/vinaag-logo.svg" 
-              alt="Vinaag Pest Control Logo" 
+              src="/vinaag-logo.png" 
+              alt="Vinaag Pest Control" 
               className="h-14 w-auto"
             />
           </Link>
