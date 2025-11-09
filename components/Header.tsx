@@ -19,7 +19,7 @@ export default function Header() {
       {/* Top Bar */}
       <div className="bg-primary-600 text-white py-2">
         <div className="container mx-auto px-4 flex flex-wrap justify-between items-center text-sm">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <a href="tel:7498571873" className="flex items-center gap-2 hover:text-primary-100">
               <Phone size={16} />
               <span>7498571873</span>
