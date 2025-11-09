@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Shield, Clock, Award, CheckCircle, Bug, Home as HomeIcon, Building2, Leaf } from 'lucide-react'
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       icon: Bug,
       title: 'Termite Control',
       description: 'Complete termite elimination and prevention solutions for your property.',
+      image: '/images/termite.jpg',
     },
     {
       icon: HomeIcon,
@@ -131,7 +133,20 @@ export default function Home() {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-t-4 border-primary-600"
               >
-                <service.icon className="w-12 h-12 text-primary-600 mb-4" />
+                {service.image ? (
+                  <div className="mb-4">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-40 object-cover rounded-md"
+                      priority
+                    />
+                  </div>
+                ) : (
+                  <service.icon className="w-12 h-12 text-primary-600 mb-4" />
+                )}
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <Link
