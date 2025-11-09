@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   description: 'Professional pest control services for residential and commercial properties. Safe, effective, and reliable pest management solutions.',
   keywords: 'pest control, termite control, rodent control, cockroach control, bed bug control, mosquito control',
   icons: {
-    icon: '/vinaag-logo.png',
-    apple: '/vinaag-logo.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 }
 

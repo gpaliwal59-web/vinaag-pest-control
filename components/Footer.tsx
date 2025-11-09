@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <img 
-              src="/vinaag-logo.png" 
+              src="/logo.png" 
               alt="Vinaag Pest Control" 
               className="h-16 w-auto mb-4"
             />
