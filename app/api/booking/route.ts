@@ -1,46 +1,34 @@
 import { NextResponse } from 'next/server'
-import { writeFile, readFile, mkdir } from 'fs/promises'
-import { existsSync } from 'fs'
 import path from 'path'
+import { existsSync } from 'fs'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import { sendBookingEmail } from '@/lib/email'
 
 export async function POST(request: Request) {
   try {
     const bookingData = await request.json()
-
-    // Booking data ko format karein
     const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+
     const bookingEntry = `
-=====================================
-BOOKING #${Date.now()}
-Date & Time: ${timestamp}
-=====================================
-
-Customer Details:
-- Name: ${bookingData.name}
-- Email: ${bookingData.email}
-- Phone: ${bookingData.phone}
-- Address: ${bookingData.address}
-- City: ${bookingData.city}
-
-Service Details:
-- Service Type: ${bookingData.service}
-- Property Type: ${bookingData.propertyType}
-- Booking Date: ${bookingData.date}
-- Booking Time: ${bookingData.time}
-
-Additional Message:
-${bookingData.message || 'No additional message'}
-
-=====================================
+==== Booking ====
+Name: ${bookingData.name}
+Email: ${bookingData.email}
+Service: ${bookingData.service}
+Date: ${bookingData.date}
+Time: ${bookingData.time}
+Message: ${bookingData.message || 'No additional message'}
+Timestamp: ${timestamp}
+=================
 
 `
 
     let saved = false
-    // Vercel par filesystem read-only hota hai. Local/dev me file write karne ki koshish karein.
-    try {
-      const bookingsDir = path.join(process.cwd(), 'bookings')
-      if (!process.env.VERCEL) {
+    let emailed = false
+
+    // ✅ File write only if NOT on Vercel
+    if (!process.env.VERCEL) {
+      try {
+        const bookingsDir = path.join(process.cwd(), 'bookings')
         if (!existsSync(bookingsDir)) {
           await mkdir(bookingsDir, { recursive: true })
         }
@@ -50,15 +38,16 @@ ${bookingData.message || 'No additional message'}
         if (existsSync(filePath)) {
           existingContent = await readFile(filePath, 'utf-8')
         }
+
         const newContent = bookingEntry + existingContent
         await writeFile(filePath, newContent, 'utf-8')
         saved = true
+      } catch (fsError) {
+        console.error('File write failed:', fsError)
       }
-    } catch (fsError) {
-      console.error('File write failed:', fsError)
     }
 
-    let emailed = false
+    // ✅ Email logic
     try {
       const res = await sendBookingEmail(bookingData)
       emailed = !!(res as any)?.success
@@ -69,10 +58,13 @@ ${bookingData.message || 'No additional message'}
       console.error('Email send failed:', emailError)
     }
 
+    // ✅ Final response
     if (saved || emailed) {
       return NextResponse.json({
         success: true,
-        message: saved ? 'Booking saved successfully!' : 'Booking received via email!',
+        message: saved
+          ? 'Booking saved successfully!'
+          : 'Booking received via email!',
       })
     }
 
