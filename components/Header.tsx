@@ -43,7 +43,7 @@ export default function Header() {
             <img 
               src="/logo.png" 
               alt="Vinaag Pest Control" 
-              className="h-14 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
