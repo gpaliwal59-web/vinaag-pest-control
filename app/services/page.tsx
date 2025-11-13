@@ -26,6 +26,7 @@ export default function Services() {
         'Trapping and removal',
         'Prevention and exclusion services',
       ],
+      image: '/Rodent%20Control.jpg',
     },
     {
       icon: Bug,

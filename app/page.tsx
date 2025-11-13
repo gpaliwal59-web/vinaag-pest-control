@@ -14,6 +14,7 @@ export default function Home() {
       icon: HomeIcon,
       title: 'Rodent Control',
       description: 'Safe and effective rodent removal and prevention services.',
+      image: '/Rodent%20Control.jpg',
     },
     {
       icon: Bug,
