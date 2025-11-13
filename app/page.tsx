@@ -20,21 +20,49 @@ export default function Home() {
       icon: Bug,
       title: 'Cockroach Control',
       description: 'Comprehensive cockroach treatment for homes and businesses.',
+      image: '/cockroach%20control.jpg',
     },
     {
       icon: Bug,
       title: 'Bed Bug Control',
       description: 'Advanced bed bug treatment with guaranteed results.',
+      image: '/Bed%20Bugs%20control.jpg',
     },
     {
       icon: Bug,
       title: 'Mosquito Control',
       description: 'Effective mosquito control for a healthier environment.',
+      image: '/mosquito%20control.jpg',
     },
     {
       icon: Building2,
       title: 'Commercial Services',
       description: 'Specialized pest control solutions for businesses.',
+      image: '/commercial%20services.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Snake Removal',
+      description: 'Safe, humane snake removal and relocation by trained professionals.',
+      image: '/Snake%20removal.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Ant Control',
+      description: 'Targeted treatments to eliminate ant colonies and prevent re-infestation.',
+      image: '/ant%20control.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Spider Control',
+      description: 'Comprehensive spider inspection and treatment for indoor and outdoor areas.',
+      image: '/Spider%20Control.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Fly Control',
+      description: 'Odorless, effective fly control solutions for hygienic spaces.',
+      image: '/fly%20pest%20control.jpg',
     },
   ]
 
@@ -61,31 +89,52 @@ export default function Home() {
     },
   ]
 
+  // Ensure Commercial appears last
+  const orderedServices = [...services].sort((a, b) => {
+    const aIsCommercial = a.title.toLowerCase().includes('commercial')
+    const bIsCommercial = b.title.toLowerCase().includes('commercial')
+    return Number(aIsCommercial) - Number(bIsCommercial)
+  })
+
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
+      <section className="text-white py-10 md:py-14">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Professional Pest Control Services
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-50">
-              Safe, effective, and reliable pest management solutions for your home and business.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/booking"
-                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 transition-colors"
-              >
-                Book Now
-              </Link>
-              <Link
-                href="/services"
-                className="bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-800 transition-colors border-2 border-white"
-              >
-                Our Services
-              </Link>
+          <div className="relative overflow-hidden rounded-xl border border-white/20 shadow-lg min-h-[320px] md:min-h-[460px]">
+            {/* Background Image */}
+            <Image
+              src="/hero%20banner.jpg"
+              alt="Vinaag Pest Control technician performing treatment"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center md:object-[right_center]"
+            />
+            {/* Overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-900/70 to-primary-700/50" />
+
+            <div className="relative z-10 p-6 md:p-10 max-w-3xl">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Professional Pest Control Services
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-primary-50">
+                Safe, effective, and reliable pest management solutions for your home and business.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/booking"
+                  className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 transition-colors"
+                >
+                  Book Now
+                </Link>
+                <Link
+                  href="/services"
+                  className="bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-800 transition-colors border-2 border-white"
+                >
+                  Our Services
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -129,11 +178,15 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
+            {orderedServices.map((service, index) => (
+              <Link
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-t-4 border-primary-600"
+                href={{ pathname: '/booking', query: { service: service.title } }}
+                className="block group"
               >
+                <div
+                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border-t-4 border-primary-600 cursor-pointer group-hover:-translate-y-0.5"
+                >
                 {service.image ? (
                   <div className="mb-4">
                     <Image
@@ -141,7 +194,8 @@ export default function Home() {
                       alt={service.title}
                       width={600}
                       height={400}
-                      className="w-full h-40 object-cover rounded-md"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="w-full h-28 object-contain rounded-md bg-gray-100 p-2"
                       priority
                     />
                   </div>
@@ -150,13 +204,13 @@ export default function Home() {
                 )}
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link
-                  href="/services"
+                <span
                   className="text-primary-600 font-semibold hover:text-primary-700"
                 >
-                  Learn More →
-                </Link>
+                  Book This Service →
+                </span>
               </div>
+              </Link>
             ))}
           </div>
         </div>

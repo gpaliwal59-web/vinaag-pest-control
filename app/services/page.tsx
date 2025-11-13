@@ -38,6 +38,7 @@ export default function Services() {
         'Residual spray treatment',
         'Follow-up services included',
       ],
+      image: '/cockroach%20control.jpg',
     },
     {
       icon: Bug,
@@ -49,6 +50,7 @@ export default function Services() {
         'Chemical treatment options',
         'Multiple visit packages',
       ],
+      image: '/Bed%20Bugs%20control.jpg',
     },
     {
       icon: Bug,
@@ -60,6 +62,7 @@ export default function Services() {
         'Breeding site elimination',
         'Seasonal protection plans',
       ],
+      image: '/mosquito%20control.jpg',
     },
     {
       icon: Building2,
@@ -72,7 +75,61 @@ export default function Services() {
         'Discreet and professional service',
       ],
     },
+    {
+      icon: Bug,
+      title: 'Snake Removal',
+      description: 'Safe, humane snake capture and relocation by trained technicians.',
+      features: [
+        'Rapid on-site response',
+        'Safe capture and relocation',
+        'Entry point inspection',
+        'Prevention guidance',
+      ],
+      image: '/Snake%20removal.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Ant Control',
+      description: 'Targeted treatments to eliminate ant colonies and stop re-infestation.',
+      features: [
+        'Gel and bait treatments',
+        'Colony elimination approach',
+        'Indoor and outdoor coverage',
+        'Prevention recommendations',
+      ],
+      image: '/ant%20control.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Spider Control',
+      description: 'Comprehensive spider inspection and treatment for living and storage areas.',
+      features: [
+        'Web removal and treatment',
+        'Crack and crevice spray',
+        'Garage/attic coverage',
+        'Follow-up if needed',
+      ],
+      image: '/Spider%20Control.jpg',
+    },
+    {
+      icon: Bug,
+      title: 'Fly Control',
+      description: 'Odorless and effective fly management for kitchens and outdoor areas.',
+      features: [
+        'Larvicide where applicable',
+        'ULV fogging/misting',
+        'Breeding site reduction',
+        'Hygiene recommendations',
+      ],
+      image: '/fly%20pest%20control.jpg',
+    },
   ]
+
+  const orderedServices = [...services].sort((a, b) => {
+    const aIsCommercial = a.title.toLowerCase().includes('commercial')
+    const bIsCommercial = b.title.toLowerCase().includes('commercial')
+    return Number(aIsCommercial) - Number(bIsCommercial)
+  })
 
   return (
     <div className="animate-fade-in">
@@ -93,43 +150,48 @@ export default function Services() {
       {/* Services Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {orderedServices.map((service, index) => (
+              <Link
                 key={index}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary-600"
+                href={{ pathname: '/booking', query: { service: service.title } }}
+                className="block group"
               >
-                {service.image ? (
-                  <div className="mb-4 -mt-2">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={800}
-                      height={500}
-                      className="w-full h-48 object-cover rounded-md"
-                      priority
-                    />
-                  </div>
-                ) : (
-                  <service.icon className="w-16 h-16 text-primary-600 mb-4" />
-                )}
-                <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/booking"
-                  className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+                <div
+                  className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl group-hover:shadow-xl transition-all border-l-4 border-primary-600 cursor-pointer group-hover:-translate-y-0.5"
                 >
-                  Book This Service
-                </Link>
-              </div>
+                  {service.image ? (
+                    <div className="mb-4 -mt-2">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={800}
+                        height={500}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="w-full h-28 object-contain rounded-md bg-gray-100 p-2"
+                        priority
+                      />
+                    </div>
+                  ) : (
+                    <service.icon className="w-16 h-16 text-primary-600 mb-4" />
+                  )}
+                  <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span
+                    className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+                  >
+                    Book This Service
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Calendar, Clock, User, Phone, Mail, MapPin, Home, CheckCircle } from 'lucide-react'
 
 export default function Booking() {
+  const searchParams = useSearchParams()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +30,10 @@ export default function Booking() {
     'Mosquito Control',
     'Commercial Pest Control',
     'General Pest Control',
+    'Snake Removal',
+    'Ant Control',
+    'Spider Control',
+    'Fly Control',
   ]
 
   const propertyTypes = ['Residential', 'Commercial', 'Industrial']
@@ -46,6 +52,17 @@ export default function Booking() {
       [e.target.name]: e.target.value,
     })
   }
+
+  // Preselect service from query string (?service=...)
+  useEffect(() => {
+    const qService = searchParams.get('service')
+    if (!qService) return
+    const decoded = decodeURIComponent(qService)
+    const match = services.find(s => s.toLowerCase() === decoded.toLowerCase())
+    if (match) {
+      setFormData(prev => ({ ...prev, service: match }))
+    }
+  }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
