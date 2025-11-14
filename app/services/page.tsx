@@ -26,7 +26,7 @@ export default function Services() {
         'Trapping and removal',
         'Prevention and exclusion services',
       ],
-      image: '/Rodent%20Control.jpg',
+      image: '/Rodent.jpg',
     },
     {
       icon: Bug,
@@ -38,7 +38,7 @@ export default function Services() {
         'Residual spray treatment',
         'Follow-up services included',
       ],
-      image: '/cockroach%20control.jpg',
+      image: '/cockroach.jpg',
     },
     {
       icon: Bug,
@@ -50,7 +50,7 @@ export default function Services() {
         'Chemical treatment options',
         'Multiple visit packages',
       ],
-      image: '/Bed%20Bugs%20control.jpg',
+      image: '/Bed Bugs.jpg',
     },
     {
       icon: Bug,
@@ -62,7 +62,7 @@ export default function Services() {
         'Breeding site elimination',
         'Seasonal protection plans',
       ],
-      image: '/mosquito%20control.jpg',
+      image: '/mosquito.jpg',
     },
     {
       icon: Building2,
@@ -85,7 +85,7 @@ export default function Services() {
         'Entry point inspection',
         'Prevention guidance',
       ],
-      image: '/Snake%20removal.jpg',
+      image: '/Snake.jpg',
     },
     {
       icon: Bug,
@@ -97,7 +97,7 @@ export default function Services() {
         'Indoor and outdoor coverage',
         'Prevention recommendations',
       ],
-      image: '/ant%20control.jpg',
+      image: '/ant.jpg',
     },
     {
       icon: Bug,
@@ -109,7 +109,7 @@ export default function Services() {
         'Garage/attic coverage',
         'Follow-up if needed',
       ],
-      image: '/Spider%20Control.jpg',
+      image: '/Spider.jpg',
     },
     {
       icon: Bug,
@@ -121,7 +121,7 @@ export default function Services() {
         'Breeding site reduction',
         'Hygiene recommendations',
       ],
-      image: '/fly%20pest%20control.jpg',
+      image: '/fly.jpg',
     },
   ]
 
