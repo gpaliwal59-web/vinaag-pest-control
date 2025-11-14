@@ -1,11 +1,12 @@
 "use client"
 
 import { useEffect } from 'react'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export default function AdminPartners() {
+  const router = useRouter()
   useEffect(() => {
-    redirect('/')
-  }, [])
+    router.replace('/')
+  }, [router])
   return null
 }
