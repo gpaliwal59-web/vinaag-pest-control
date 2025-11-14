@@ -14,55 +14,55 @@ export default function Home() {
       icon: HomeIcon,
       title: 'Rodent Control',
       description: 'Safe and effective rodent removal and prevention services.',
-      image: '/Rodent%20Control.jpg',
+      image: '/Rodent.jpg',
     },
     {
       icon: Bug,
       title: 'Cockroach Control',
       description: 'Comprehensive cockroach treatment for homes and businesses.',
-      image: '/cockroach%20control.jpg',
+      image: '/cockroach.jpg',
     },
     {
       icon: Bug,
       title: 'Bed Bug Control',
       description: 'Advanced bed bug treatment with guaranteed results.',
-      image: '/Bed%20Bugs%20control.jpg',
+      image: '/Bed Bugs.jpg',
     },
     {
       icon: Bug,
       title: 'Mosquito Control',
       description: 'Effective mosquito control for a healthier environment.',
-      image: '/mosquito%20control.jpg',
+      image: '/mosquito.jpg',
     },
     {
       icon: Building2,
       title: 'Commercial Services',
       description: 'Specialized pest control solutions for businesses.',
-      image: '/commercial%20services.jpg',
+      image: '/commercial.jpg',
     },
     {
       icon: Bug,
       title: 'Snake Removal',
       description: 'Safe, humane snake removal and relocation by trained professionals.',
-      image: '/Snake%20removal.jpg',
+      image: '/Snake.jpg',
     },
     {
       icon: Bug,
       title: 'Ant Control',
       description: 'Targeted treatments to eliminate ant colonies and prevent re-infestation.',
-      image: '/ant%20control.jpg',
+      image: '/ant.jpg',
     },
     {
       icon: Bug,
       title: 'Spider Control',
       description: 'Comprehensive spider inspection and treatment for indoor and outdoor areas.',
-      image: '/Spider%20Control.jpg',
+      image: '/Spider.jpg',
     },
     {
       icon: Bug,
       title: 'Fly Control',
       description: 'Odorless, effective fly control solutions for hygienic spaces.',
-      image: '/fly%20pest%20control.jpg',
+      image: '/fly.jpg',
     },
   ]
 
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-xl border border-white/20 shadow-lg min-h-[320px] md:min-h-[460px]">
             {/* Background Image */}
             <Image
-              src="/hero%20banner.jpg"
+              src="/images/termite.jpg"
               alt="Vinaag Pest Control technician performing treatment"
               fill
               priority
