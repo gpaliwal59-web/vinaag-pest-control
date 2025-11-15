@@ -407,3 +407,17 @@ function BookingContent() {
     </div>
   )
 }
+
+export default function Booking() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <p className="text-gray-600 text-lg">Loading booking page...</p>
+        </div>
+      }
+    >
+      <BookingContent />
+    </Suspense>
+  )
+}
