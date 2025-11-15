@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Calendar, Clock, User, Phone, Mail, MapPin, Home, CheckCircle } from 'lucide-react'
 
-export default function Booking() {
+function BookingContent() {
   const searchParams = useSearchParams()
   const [formData, setFormData] = useState({
     name: '',
